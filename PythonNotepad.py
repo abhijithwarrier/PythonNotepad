@@ -11,7 +11,7 @@ from tkinter import filedialog, messagebox
 # Defining CreateWidgets() function to create necessary tkinter widgets
 # FOR BUTTON BACKGROUND COLOR USE bg ARGUMENT IN WINDOWS AND highlightbackground ARGUMENT IN MAC
 def CreateWidgets():
-    saveFileLabel = Label(root, text='FILE NAME : ', font=('', 15, 'bold'), bg='steelblue')
+    saveFileLabel = Label(root, text='FILE NAME : ', font=('', 15, 'bold'), bg='cyan4')
     saveFileLabel.grid(row=0, column=0, padx=5, pady=5)
 
     saveFileEntry = Entry(root, width=50, textvariable=fileName, bg='darkgrey')
@@ -20,7 +20,7 @@ def CreateWidgets():
     fileBrowseButton = Button(root, text='BROWSE', width=20, command=fileBrowse, highlightbackground='yellow')
     fileBrowseButton.grid(row=0, column=2, padx=5, pady=5)
 
-    fileTextLabel = Label(root, text='FILE TEXT : ', font=('', 15, 'bold'), bg='steelblue')
+    fileTextLabel = Label(root, text='FILE TEXT : ', font=('', 15, 'bold'), bg='cyan4')
     fileTextLabel.grid(row=1, column=0, padx=5, pady=5)
 
     root.fileTextEntry = Text(root, width=120, height=30, bg='darkgrey')
@@ -35,8 +35,8 @@ def CreateWidgets():
 # Defining the Browse() to save the file
 def fileBrowse():
     # Fetching the user-input filename and destination path using asksaveasfilename
-    # Setting the initialdir and filetypes arguments are option
-    f_name = filedialog.asksaveasfilename(initialdir='YOUR DESTINATION PATH',
+    # Setting the initialdir and filetypes arguments are optional.
+    f_name = filedialog.asksaveasfilename(initialdir='/Users/abhijithwarrier/Documents/PyNotepad',
                                           filetypes=(('Text File (*.txt)','*.txt'),
                                                      ('DOC File (*.doc)','*.doc'),
                                                      ('All File')))
@@ -66,7 +66,7 @@ def fileWrite():
     # If the user has not entered the file name and path, saving the file in default location with the current date
     # and time as the file name
     else:
-        default_path = 'DEFAULT DESTINATION PATH OF YOUR CHOICE TO SAVE FILES'
+        default_path = '/Users/abhijithwarrier/Documents/PyNotepad/'
         default_filename = default_path + str(dt.now().strftime('%d%m%Y %H%M'))+'.txt'
         # Opening the file in write mode with fileOpen as the file object
         with open(default_filename, 'w') as fileOpen:
@@ -84,7 +84,7 @@ root = tk.Tk()
 root.title('PyNotepad')
 root.geometry('860x560')
 root.resizable(False, False)
-root.configure(background='steelblue')
+root.configure(background='cyan4')
 
 # Creating tkinter variable
 fileName = StringVar()
